@@ -7,7 +7,7 @@ namespace DataStructures.Tests
     public class BitTrieTests
     {
         [TestMethod]
-        public void MaximizeXorTest()
+        public void BitTrie_MaximizeXorTest()
         {
             ushort expected = 0x6;
 
@@ -20,7 +20,7 @@ namespace DataStructures.Tests
         }
 
         [TestMethod]
-        public void ContainsTest()
+        public void BitTrie_ContainsTest()
         {
             BitTrie trie = new BitTrie(3);
             trie.InsertRange(0x2, 0x5, 0x7);

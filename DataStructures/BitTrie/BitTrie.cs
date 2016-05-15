@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataStructures
 {
+    /// <summary>
+    /// A binary tree with nodes serving as bits of the inserted values. One of the most useful data structures when you need to minimize or maximize a bitwise operation.
+    /// </summary>
     public class BitTrie
     {
-        public class Node
+        private class Node
         {
             public Node[] children = new Node[2];
         }
