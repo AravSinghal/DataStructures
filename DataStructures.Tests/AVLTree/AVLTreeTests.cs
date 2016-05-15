@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using DataStructures;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DataStructures.Tests
@@ -22,9 +23,9 @@ namespace DataStructures.Tests
             }
 
             // Contains comparer test
-            int l = 15 ;
+            int l = 15;
             int r = 25000;
-            Assert.IsTrue(tree.Contains(delegate(int x)
+            Assert.IsTrue(tree.Contains(delegate (int x)
             {
                 if (x > r) return -1;
                 if (x >= l) return 0;
@@ -33,13 +34,29 @@ namespace DataStructures.Tests
 
             l = 50110;
             r = 51200;
-            Assert.IsFalse(tree.Contains(delegate(int x)
+            Assert.IsFalse(tree.Contains(delegate (int x)
             {
                 if (x > r) return -1;
                 if (x >= l) return 0;
                 return 1;
             }));
-            
+
+        }
+
+        [TestMethod]
+        public void AVLTree_InsertTest()
+        {
+            AVLTree<int> tree = new AVLTree<int>();
+
+            tree.Insert(1);
+            tree.Insert(2);
+            tree.Insert(3);
+            tree.Insert(4);
+            tree.Insert(5);
+            tree.Insert(6);
+            tree.Insert(7);
+
+            Assert.AreEqual(4, tree.RootData);
         }
     }
 }
