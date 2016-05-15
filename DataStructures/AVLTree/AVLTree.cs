@@ -86,6 +86,11 @@ namespace DataStructures
             return newRoot;
         }
 
+        /// <summary>
+        /// Helper method that left rotates the subtree at <paramref name="root"/>
+        /// </summary>
+        /// <param name="root">The root of the subtree to rotate.</param>
+        /// <returns>The root of the rotated subtree.</returns>
         private static Node RotateLeft(Node root)
         {
             Node newRoot = root.right;
@@ -101,6 +106,12 @@ namespace DataStructures
             return newRoot;
         }
 
+        /// <summary>
+        /// Helper method that recursively inserts <paramref name="data"/> in the subtree with root <paramref name="node"/>.
+        /// </summary>
+        /// <param name="node">The root of the subtree in which to insert the data.</param>
+        /// <param name="data">The value to insert into the subtree.</param>
+        /// <returns>The new root of the subtree.</returns>
         private static Node Insert(Node node, T data)
         {
             if (node == null)
@@ -140,18 +151,31 @@ namespace DataStructures
         }
 
 
+        /// <summary>
+        /// Inserts <paramref name="item"/> into the <see cref="AVLTree{T}"/>.
+        /// </summary>
+        /// <param name="item">The value to insert in the tree.</param>
         public void Insert(T item)
         {
             root = Insert(root, item);
             Count++;
         }
 
+        /// <summary>
+        /// Inserts all values in <paramref name="items"/> into the <see cref="AVLTree{T}"/>
+        /// </summary>
+        /// <param name="items">The values to insert in the tree.</param>
         public void InsertRange(params T[] items)
         {
             foreach (T item in items)
                 Insert(item);
         }
 
+        /// <summary>
+        /// Determines whether a value satisfying <paramref name="comparer"/> exists in the <see cref="AVLTree{T}"/>.
+        /// </summary>
+        /// <param name="comparer">The comparer function that returns an<see cref="int"/>.</param>
+        /// <returns>A <see cref="bool"/> stating whether a value satisfying <paramref name="comparer"/> exists in the tree.</returns>
         public bool Contains(Func<T, int> comparer)
         {
             Node node = root;
@@ -169,6 +193,11 @@ namespace DataStructures
             return false;
         }
 
+        /// <summary>
+        /// Determines whether <paramref name="item"/> exists in the <see cref="AVLTree{T}"/>.
+        /// </summary>
+        /// <param name="item">The item to search for in the tree.</param>
+        /// <returns>A <see cref="bool"/> that states whether the value exists in the tree.</returns>
         public bool Contains(T item)
         {
             return Contains(item.CompareTo);
