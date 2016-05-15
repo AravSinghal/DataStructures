@@ -103,6 +103,7 @@ namespace DataStructures
 
             // Make root.left (AKA newRoot) the new root instead
             root.Left = newRoot.Right;
+            if (newRoot.Right != null) newRoot.Right.parent = root;
             newRoot.Right = root;
 
             newRoot.parent = root.parent;
@@ -126,6 +127,7 @@ namespace DataStructures
 
             // Make root.right (AKA newRoot) the new root instead
             root.Right = newRoot.Left;
+            if (newRoot.Left != null) newRoot.Left.parent = root;
             newRoot.Left = root;
 
             newRoot.parent = root.parent;
